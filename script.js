@@ -7,7 +7,7 @@ const calculateBtn = document.getElementById("calculate-btn");
 const yearEl = document.getElementById("year");
 
 let currentStep = 1;
-const totalSteps = steps.length - 1; // l'ultimo è il risultato, non contato nella barra
+const totalSteps = steps.length; // tutte le sezioni con classe .step fanno parte del wizard
 
 if (yearEl) {
   yearEl.textContent = new Date().getFullYear().toString();
@@ -21,8 +21,10 @@ function showStep(step) {
     s.classList.toggle("active", stepNumber === step);
   });
 
-  // Aggiorna barra progresso (solo per i primi 6 step)
-  const progressPercent = Math.min((step / totalSteps) * 100, 100);
+  // Aggiorna barra progresso: parte da 0% allo step 1 e arriva al 100% allo step finale
+  const denominator = Math.max(totalSteps - 1, 1);
+  const normalizedStep = Math.max(step - 1, 0);
+  const progressPercent = Math.min((normalizedStep / denominator) * 100, 100);
   if (progressBar) {
     progressBar.style.width = `${progressPercent}%`;
   }
