@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>InnovaCH – Preventivo Videosorveglianza</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="logo-title">
+      <!-- Se hai un logo, sostituisci con <img src="assets/logo-innovach.svg" ...> -->
+      <div class="logo-circle">I</div>
+      <div>
+        <h1>InnovaCH Preventivi Smart</h1>
+        <p class="subtitle">Calcola un preventivo orientativo per il tuo impianto di videosorveglianza in 1 minuto.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="card">
+      <div class="progress">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+
+      <!-- STEP 1 -->
+      <section class="step active" data-step="1">
+        <h2>1. Che tipo di immobile vuoi proteggere?</h2>
+        <div class="options-grid">
+          <label class="option">
+            <input type="radio" name="propertyType" value="casa" />
+            <span>Casa / Appartamento</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="propertyType" value="negozio" />
+            <span>Negozio / Ufficio</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="propertyType" value="capannone" />
+            <span>Capannone / Industria</span>
+          </label>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn primary" data-next>Avanti</button>
+        </div>
+      </section>
+
+      <!-- STEP 2 -->
+      <section class="step" data-step="2">
+        <h2>2. Quante aree vuoi monitorare?</h2>
+        <p class="hint">Indicativamente quante zone/camere vuoi coprire.</p>
+        <div class="options-grid">
+          <label class="option">
+            <input type="radio" name="areas" value="2" />
+            <span>Fino a 2 aree</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="areas" value="4" />
+            <span>3–4 aree</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="areas" value="6" />
+            <span>5–6 aree</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="areas" value="8+" />
+            <span>Più di 6 aree</span>
+          </label>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn ghost" data-prev>Indietro</button>
+          <button type="button" class="btn primary" data-next>Avanti</button>
+        </div>
+      </section>
+
+      <!-- STEP 3 -->
+      <section class="step" data-step="3">
+        <h2>3. Dove saranno installate le telecamere?</h2>
+        <div class="options-grid">
+          <label class="option">
+            <input type="radio" name="locationType" value="interno" />
+            <span>Solo interno</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="locationType" value="esterno" />
+            <span>Solo esterno</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="locationType" value="entrambi" />
+            <span>Interno + esterno</span>
+          </label>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn ghost" data-prev>Indietro</button>
+          <button type="button" class="btn primary" data-next>Avanti</button>
+        </div>
+      </section>
+
+      <!-- STEP 4 -->
+      <section class="step" data-step="4">
+        <h2>4. Che livello di qualità desideri?</h2>
+        <div class="options-grid">
+          <label class="option">
+            <input type="radio" name="quality" value="1080p" />
+            <span>Standard (1080p)</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="quality" value="4k" />
+            <span>Alta (4K)</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="quality" value="lowlight" />
+            <span>Alta + Visione notturna avanzata</span>
+          </label>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn ghost" data-prev>Indietro</button>
+          <button type="button" class="btn primary" data-next>Avanti</button>
+        </div>
+      </section>
+
+      <!-- STEP 5 -->
+      <section class="step" data-step="5">
+        <h2>5. Funzionalità aggiuntive</h2>
+        <div class="options-list">
+          <label class="checkbox">
+            <input type="checkbox" name="remoteView" />
+            <span>Voglio vedere le telecamere da smartphone</span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" name="recording" />
+            <span>Voglio registrazione continua 24/7</span>
+          </label>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn ghost" data-prev>Indietro</button>
+          <button type="button" class="btn primary" data-next>Avanti</button>
+        </div>
+      </section>
+
+      <!-- STEP 6 – DATI CONTATTO + CALCOLO -->
+      <section class="step" data-step="6">
+        <h2>6. Dove vuoi ricevere il preventivo dettagliato?</h2>
+        <p class="hint">Ti mostriamo subito una fascia di prezzo orientativa, poi ti ricontattiamo per il preventivo preciso.</p>
+
+        <form id="contact-form">
+          <div class="field">
+            <label for="name">Nome e cognome *</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="field">
+            <label for="phone">Telefono / WhatsApp *</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+          <div class="field">
+            <label for="email">Email (opzionale)</label>
+            <input type="email" id="email" name="email" />
+          </div>
+        </form>
+
+        <div class="actions">
+          <button type="button" class="btn ghost" data-prev>Indietro</button>
+          <button type="button" class="btn primary" id="calculate-btn">
+            Calcola il preventivo
+          </button>
+        </div>
+      </section>
+
+      <!-- RISULTATO -->
+      <section id="result-section" class="result hidden">
+        <h2>Il tuo preventivo orientativo</h2>
+        <p id="result-range" class="result-range"></p>
+        <p class="result-text">
+          Il valore indicato è una fascia di prezzo indicativa, basata sulle tue risposte.
+          Un tecnico InnovaCH ti contatterà per definire il sopralluogo e inviarti un preventivo
+          dettagliato con materiali, posizionamento camere e tempi di installazione.
+        </p>
+        <ul class="result-highlights">
+          <li>Installazione a norma e certificata</li>
+          <li>Impianto su misura per il tuo immobile</li>
+          <li>Garanzia su componenti e manodopera</li>
+        </ul>
+        <p class="result-note">
+          Se hai urgenza, puoi contattarci direttamente: <strong>info@innovach.ch</strong>
+        </p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> InnovaCH – Automazione & Sicurezza.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
